@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5BAADA8-DC71-409B-9FE9-4C582DA9FCBC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>DHHMS.My.MyApplication</StartupObject>
+    <RootNamespace>DHHMS</RootNamespace>
+    <AssemblyName>DHHMS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>DHHMS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>DHHMS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>home.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GSP_GHMS\GSP_GHMS\bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\CONNECTION_FRM.designer.vb">
+      <DependentUpon>CONNECTION_FRM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CONNECTION_FRM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DB\DBSingle.vb" />
+    <Compile Include="DB\DBSingleData.vb" />
+    <Compile Include="DB\DB_helper.vb" />
+    <Compile Include="DB\ErrMsg.vb" />
+    <Compile Include="DB\UserData.vb" />
+    <Compile Include="GBModule.vb" />
+    <Compile Include="LogIn.Designer.vb">
+      <DependentUpon>LogIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterFRM.Designer.vb">
+      <DependentUpon>MasterFRM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterFRM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resources\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sales\frmBill002AddItem.designer.vb">
+      <DependentUpon>frmBill002AddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sales\frmBill002AddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sales\frm_sale_inv.designer.vb">
+      <DependentUpon>frm_sale_inv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sales\frm_sale_inv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sales\frm_sale_inv_add.Designer.vb">
+      <DependentUpon>frm_sale_inv_add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sales\frm_sale_inv_add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sales\frm_sale_list.Designer.vb">
+      <DependentUpon>frm_sale_list.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sales\frm_sale_list.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\userGroupMapping.Designer.vb">
+      <DependentUpon>userGroupMapping.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\userGroupMapping.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\userGroupProfile.Designer.vb">
+      <DependentUpon>userGroupProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\userGroupProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\userUser2Group.Designer.vb">
+      <DependentUpon>userUser2Group.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\userUser2Group.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\User_ChangePWD.Designer.vb">
+      <DependentUpon>User_ChangePWD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\User_ChangePWD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\User_Edit.Designer.vb">
+      <DependentUpon>User_Edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\User_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\User_GroupMgr.designer.vb">
+      <DependentUpon>User_GroupMgr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\User_GroupMgr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\User_Input.designer.vb">
+      <DependentUpon>User_Input.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\User_Input.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\User_MainForm.designer.vb">
+      <DependentUpon>User_MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users\User_MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\LoginDB.vb" />
+    <Compile Include="Windows\Forms.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DB\CONNECTION_FRM.resx">
+      <DependentUpon>CONNECTION_FRM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterFRM.resx">
+      <DependentUpon>MasterFRM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales\frmBill002AddItem.resx">
+      <DependentUpon>frmBill002AddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales\frm_sale_inv.resx">
+      <DependentUpon>frm_sale_inv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales\frm_sale_inv_add.resx">
+      <DependentUpon>frm_sale_inv_add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales\frm_sale_list.resx">
+      <DependentUpon>frm_sale_list.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\userGroupMapping.resx">
+      <DependentUpon>userGroupMapping.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\userGroupProfile.resx">
+      <DependentUpon>userGroupProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\userUser2Group.resx">
+      <DependentUpon>userUser2Group.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\User_ChangePWD.resx">
+      <DependentUpon>User_ChangePWD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\User_Edit.resx">
+      <DependentUpon>User_Edit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\User_GroupMgr.resx">
+      <DependentUpon>User_GroupMgr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\User_Input.resx">
+      <DependentUpon>User_Input.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\User_MainForm.resx">
+      <DependentUpon>User_MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="home.ico" />
+    <Content Include="Resources\269.ICO" />
+    <Content Include="Resources\2691.ICO" />
+    <Content Include="Resources\2692.ICO" />
+    <Content Include="Resources\41.ico" />
+    <Content Include="Resources\add-favorite.ico" />
+    <Content Include="Resources\add-file.ico" />
+    <Content Include="Resources\add-folder.ico" />
+    <Content Include="Resources\add-note.ico" />
+    <Content Include="Resources\add-printer.ico" />
+    <Content Include="Resources\add-star.ico" />
+    <Content Include="Resources\add-user.ico" />
+    <Content Include="Resources\add.ico" />
+    <Content Include="Resources\add1.ico" />
+    <Content Include="Resources\add1.png" />
+    <Content Include="Resources\add2.ico" />
+    <Content Include="Resources\add21.ico" />
+    <Content Include="Resources\add3.ico" />
+    <Content Include="Resources\alarm_off.png" />
+    <Content Include="Resources\attendance-system-icon.png" />
+    <Content Include="Resources\att_icon.png" />
+    <Content Include="Resources\Background.jpg" />
+    <Content Include="Resources\ball.png" />
+    <Content Include="Resources\ball_football_camp.png" />
+    <Content Include="Resources\banner system.jpg" />
+    <Content Include="Resources\banner system1.jpg" />
+    <Content Include="Resources\Benner .jpg" />
+    <Content Include="Resources\Benner 1.jpg" />
+    <Content Include="Resources\bill_of_document.png" />
+    <Content Include="Resources\button_cancel.png" />
+    <Content Include="Resources\calendar.png" />
+    <Content Include="Resources\Cancel.ico" />
+    <Content Include="Resources\Cancel1.ico" />
+    <Content Include="Resources\Close.ICO" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\Close1.ICO" />
+    <Content Include="Resources\Close2.ICO" />
+    <Content Include="Resources\construction.png" />
+    <Content Include="Resources\DELETE.ICO" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\deletered.png" />
+    <Content Include="Resources\dialog_warning.png" />
+    <Content Include="Resources\doc_add.ico" />
+    <Content Include="Resources\doc_edit.ico" />
+    <Content Include="Resources\doc_import.png" />
+    <Content Include="Resources\doc_remove.ico" />
+    <Content Include="Resources\doc_user1.ico" />
+    <Content Include="Resources\drive_work.png" />
+    <Content Include="Resources\edit.png" />
+    <Content Include="Resources\Edit1.ico" />
+    <Content Include="Resources\edit_find %281%29.png" />
+    <Content Include="Resources\edit_find.png" />
+    <Content Include="Resources\edit_remove.png" />
+    <Content Include="Resources\error.png" />
+    <Content Include="Resources\exit %281%29.png" />
+    <Content Include="Resources\exit %282%29.png" />
+    <Content Include="Resources\exit.png" />
+    <Content Include="Resources\file_delete.png" />
+    <Content Include="Resources\find.png" />
+    <Content Include="Resources\football.png" />
+    <Content Include="Resources\footbal_camo.png" />
+    <Content Include="Resources\girl.ico" />
+    <Content Include="Resources\gnome_edit_delete.png" />
+    <Content Include="Resources\holiday.png" />
+    <Content Include="Resources\home B.ico" />
+    <Content Include="Resources\home.ico" />
+    <Content Include="Resources\home.png" />
+    <Content Include="Resources\home1.png" />
+    <Content Include="Resources\homeB.png" />
+    <Content Include="Resources\house.png" />
+    <Content Include="Resources\if_49-File-Document-home_3213315.png" />
+    <Content Include="Resources\if_6-File-Document-check_3213309.png" />
+    <Content Include="Resources\invoice %281%29.png" />
+    <Content Include="Resources\invoice.png" />
+    <Content Include="Resources\key.png" />
+    <Content Include="Resources\keys.png" />
+    <Content Include="Resources\lock.png" />
+    <Content Include="Resources\login_icon.png" />
+    <Content Include="Resources\mail_import.png" />
+    <Content Include="Resources\martini.png" />
+    <Content Include="Resources\netvibes.png" />
+    <Content Include="Resources\notification_remove.png" />
+    <Content Include="Resources\pencil %281%29.png" />
+    <Content Include="Resources\pencil.png" />
+    <Content Include="Resources\plus.png" />
+    <Content Include="Resources\printer_4.png" />
+    <Content Include="Resources\reading.png" />
+    <Content Include="Resources\report.png" />
+    <Content Include="Resources\report_check %281%29.png" />
+    <Content Include="Resources\report_check.png" />
+    <Content Include="Resources\save.png" />
+    <Content Include="Resources\search.png" />
+    <Content Include="Resources\soft_drink.png" />
+    <Content Include="Resources\Sport-football-pitch-icon.png" />
+    <Content Include="Resources\stock_lock_open.png" />
+    <Content Include="Resources\stop1.ico" />
+    <Content Include="Resources\student %281%29.png" />
+    <Content Include="Resources\student.png" />
+    <Content Include="Resources\study_app.ico" />
+    <Content Include="Resources\system-database-add-icon.png" />
+    <Content Include="Resources\transfer_left_right.png" />
+    <Content Include="Resources\User-Group.png" />
+    <Content Include="Resources\user2.ico" />
+    <Content Include="Resources\users.png" />
+    <Content Include="Resources\users_1.png" />
+    <Content Include="Resources\user_add1.ico" />
+    <Content Include="Resources\user_edit1.ico" />
+    <Content Include="Resources\user_remove1.ico" />
+    <Content Include="Resources\web-search.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
