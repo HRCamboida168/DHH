@@ -32,8 +32,9 @@ Partial Class frm_sale_inv_add
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.OK_Button = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.OK_Button = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtInvNum = New System.Windows.Forms.TextBox()
         Me.cboSexcode = New System.Windows.Forms.ComboBox()
@@ -56,223 +57,257 @@ Partial Class frm_sale_inv_add
         Me.dgvItem = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.unitprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtDiscntAmt = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtVAT = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnRemove = New System.Windows.Forms.Button()
         Me.txtGrosamt = New System.Windows.Forms.TextBox()
         Me.txtNetAmt = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboCurrency = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.dgvOthers = New System.Windows.Forms.DataGridView()
+        Me.dgvFilter = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtDeposit = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtEndAmt = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvItem, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvOthers, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvFilter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(568, 460)
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.85938!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.14063!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 1, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(447, 450)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(194, 35)
-        Me.TableLayoutPanel1.TabIndex = 31
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(333, 37)
+        Me.TableLayoutPanel1.TabIndex = 34
         '
-        'OK_Button
+        'Button1
         '
-        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(4, 3)
-        Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(89, 29)
-        Me.OK_Button.TabIndex = 0
-        Me.OK_Button.Text = "OK"
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button1.Location = New System.Drawing.Point(4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(130, 29)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Save Print Invoice"
         '
         'Cancel_Button
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(101, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(258, 4)
+        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(89, 29)
-        Me.Cancel_Button.TabIndex = 1
+        Me.Cancel_Button.Size = New System.Drawing.Size(65, 29)
+        Me.Cancel_Button.TabIndex = 2
         Me.Cancel_Button.Text = "Cancel"
+        '
+        'OK_Button
+        '
+        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.OK_Button.Location = New System.Drawing.Point(142, 4)
+        Me.OK_Button.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.OK_Button.Name = "OK_Button"
+        Me.OK_Button.Size = New System.Drawing.Size(104, 29)
+        Me.OK_Button.TabIndex = 1
+        Me.OK_Button.Text = "Save Close"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(495, 20)
+        Me.Label1.Location = New System.Drawing.Point(421, 15)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(61, 16)
+        Me.Label1.Size = New System.Drawing.Size(57, 22)
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "Invoice #"
         '
         'txtInvNum
         '
         Me.txtInvNum.Enabled = False
-        Me.txtInvNum.Location = New System.Drawing.Point(621, 17)
+        Me.txtInvNum.Location = New System.Drawing.Point(506, 11)
+        Me.txtInvNum.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtInvNum.Name = "txtInvNum"
         Me.txtInvNum.ReadOnly = True
-        Me.txtInvNum.Size = New System.Drawing.Size(141, 22)
+        Me.txtInvNum.Size = New System.Drawing.Size(177, 30)
         Me.txtInvNum.TabIndex = 15
         '
         'cboSexcode
         '
+        Me.cboSexcode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSexcode.FormattingEnabled = True
-        Me.cboSexcode.Location = New System.Drawing.Point(135, 73)
+        Me.cboSexcode.Location = New System.Drawing.Point(103, 77)
+        Me.cboSexcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboSexcode.Name = "cboSexcode"
-        Me.cboSexcode.Size = New System.Drawing.Size(217, 24)
+        Me.cboSexcode.Size = New System.Drawing.Size(190, 30)
         Me.cboSexcode.TabIndex = 5
         '
         'dtpInvDt
         '
         Me.dtpInvDt.CustomFormat = "dd/MMM/yyyy"
         Me.dtpInvDt.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpInvDt.Location = New System.Drawing.Point(621, 45)
+        Me.dtpInvDt.Location = New System.Drawing.Point(506, 44)
+        Me.dtpInvDt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtpInvDt.Name = "dtpInvDt"
-        Me.dtpInvDt.Size = New System.Drawing.Size(141, 22)
+        Me.dtpInvDt.Size = New System.Drawing.Size(271, 30)
         Me.dtpInvDt.TabIndex = 17
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 48)
+        Me.Label2.Location = New System.Drawing.Point(12, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(81, 16)
+        Me.Label2.Size = New System.Drawing.Size(81, 22)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Client Name"
+        Me.Label2.Text = "Client Name*"
         '
         'txtClinm
         '
-        Me.txtClinm.Location = New System.Drawing.Point(135, 45)
+        Me.txtClinm.Location = New System.Drawing.Point(103, 44)
+        Me.txtClinm.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtClinm.Name = "txtClinm"
-        Me.txtClinm.Size = New System.Drawing.Size(318, 22)
+        Me.txtClinm.Size = New System.Drawing.Size(310, 30)
         Me.txtClinm.TabIndex = 3
         '
         'txtcli_num
         '
         Me.txtcli_num.Enabled = False
-        Me.txtcli_num.Location = New System.Drawing.Point(135, 17)
+        Me.txtcli_num.Location = New System.Drawing.Point(103, 11)
+        Me.txtcli_num.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcli_num.Name = "txtcli_num"
         Me.txtcli_num.ReadOnly = True
-        Me.txtcli_num.Size = New System.Drawing.Size(175, 22)
+        Me.txtcli_num.Size = New System.Drawing.Size(154, 30)
         Me.txtcli_num.TabIndex = 1
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(14, 20)
+        Me.Label3.Location = New System.Drawing.Point(12, 15)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(92, 16)
+        Me.Label3.Size = New System.Drawing.Size(87, 22)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Client Number"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(495, 48)
+        Me.Label4.Location = New System.Drawing.Point(421, 48)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 16)
+        Me.Label4.Size = New System.Drawing.Size(76, 22)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Invoice Date"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 77)
+        Me.Label5.Location = New System.Drawing.Point(12, 83)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(53, 16)
+        Me.Label5.Size = New System.Drawing.Size(50, 22)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Gender"
         '
         'txtphoneNum
         '
-        Me.txtphoneNum.Location = New System.Drawing.Point(135, 103)
+        Me.txtphoneNum.Location = New System.Drawing.Point(103, 111)
+        Me.txtphoneNum.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtphoneNum.Name = "txtphoneNum"
-        Me.txtphoneNum.Size = New System.Drawing.Size(217, 22)
+        Me.txtphoneNum.Size = New System.Drawing.Size(190, 30)
         Me.txtphoneNum.TabIndex = 7
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(14, 106)
+        Me.Label6.Location = New System.Drawing.Point(12, 116)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(95, 16)
+        Me.Label6.Size = New System.Drawing.Size(89, 22)
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Phone number"
         '
         'txtMobilNum
         '
-        Me.txtMobilNum.Location = New System.Drawing.Point(135, 131)
+        Me.txtMobilNum.Location = New System.Drawing.Point(103, 145)
+        Me.txtMobilNum.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtMobilNum.Name = "txtMobilNum"
-        Me.txtMobilNum.Size = New System.Drawing.Size(217, 22)
+        Me.txtMobilNum.Size = New System.Drawing.Size(190, 30)
         Me.txtMobilNum.TabIndex = 9
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(14, 134)
+        Me.Label7.Location = New System.Drawing.Point(12, 150)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(100, 16)
+        Me.Label7.Size = New System.Drawing.Size(92, 22)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Mobile Number"
         '
         'txtMail
         '
-        Me.txtMail.Location = New System.Drawing.Point(135, 159)
+        Me.txtMail.Location = New System.Drawing.Point(103, 178)
+        Me.txtMail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtMail.Name = "txtMail"
-        Me.txtMail.Size = New System.Drawing.Size(318, 22)
+        Me.txtMail.Size = New System.Drawing.Size(310, 30)
         Me.txtMail.TabIndex = 11
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(14, 162)
+        Me.Label8.Location = New System.Drawing.Point(12, 182)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(42, 16)
+        Me.Label8.Size = New System.Drawing.Size(39, 22)
         Me.Label8.TabIndex = 10
         Me.Label8.Text = "Email"
         '
         'txtAddress
         '
-        Me.txtAddress.Location = New System.Drawing.Point(135, 187)
+        Me.txtAddress.Location = New System.Drawing.Point(103, 212)
+        Me.txtAddress.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(318, 22)
+        Me.txtAddress.Size = New System.Drawing.Size(310, 30)
         Me.txtAddress.TabIndex = 13
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(14, 190)
+        Me.Label9.Location = New System.Drawing.Point(12, 216)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(59, 16)
+        Me.Label9.Size = New System.Drawing.Size(55, 22)
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "Address"
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.dgvItem)
-        Me.GroupBox1.Location = New System.Drawing.Point(17, 235)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 250)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(745, 214)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(762, 197)
         Me.GroupBox1.TabIndex = 30
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Invoice Details"
@@ -288,10 +323,10 @@ Partial Class frm_sale_inv_add
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.dgvItem.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvItem.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.Column1, Me.Column2, Me.DataGridViewTextBoxColumn4})
+        Me.dgvItem.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.qty, Me.unitprice, Me.total})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightBlue
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -299,13 +334,12 @@ Partial Class frm_sale_inv_add
         Me.dgvItem.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvItem.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvItem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.dgvItem.Location = New System.Drawing.Point(3, 18)
-        Me.dgvItem.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.dgvItem.Location = New System.Drawing.Point(3, 27)
         Me.dgvItem.MultiSelect = False
         Me.dgvItem.Name = "dgvItem"
         Me.dgvItem.RowHeadersVisible = False
         Me.dgvItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvItem.Size = New System.Drawing.Size(739, 193)
+        Me.dgvItem.Size = New System.Drawing.Size(756, 166)
         Me.dgvItem.TabIndex = 0
         '
         'DataGridViewTextBoxColumn1
@@ -319,163 +353,184 @@ Partial Class frm_sale_inv_add
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.Width = 300
         '
-        'Column1
+        'qty
         '
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column1.HeaderText = "QTY"
-        Me.Column1.Name = "Column1"
+        Me.qty.DefaultCellStyle = DataGridViewCellStyle2
+        Me.qty.HeaderText = "QTY"
+        Me.qty.Name = "qty"
         '
-        'Column2
+        'unitprice
         '
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         DataGridViewCellStyle3.Format = "N2"
         DataGridViewCellStyle3.NullValue = Nothing
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Column2.HeaderText = "Unit Price"
-        Me.Column2.Name = "Column2"
+        Me.unitprice.DefaultCellStyle = DataGridViewCellStyle3
+        Me.unitprice.HeaderText = "Unit Price"
+        Me.unitprice.Name = "unitprice"
         '
-        'DataGridViewTextBoxColumn4
+        'total
         '
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         DataGridViewCellStyle4.Format = "N2"
         DataGridViewCellStyle4.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Total"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.total.DefaultCellStyle = DataGridViewCellStyle4
+        Me.total.HeaderText = "Total"
+        Me.total.Name = "total"
+        Me.total.Width = 120
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(495, 106)
+        Me.Label10.Location = New System.Drawing.Point(421, 116)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(92, 16)
+        Me.Label10.Size = New System.Drawing.Size(70, 22)
         Me.Label10.TabIndex = 20
-        Me.Label10.Text = "Gross Amount"
+        Me.Label10.Text = "Gross AMT"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(495, 134)
+        Me.Label11.Location = New System.Drawing.Point(421, 149)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(108, 16)
+        Me.Label11.Size = New System.Drawing.Size(84, 22)
         Me.Label11.TabIndex = 22
-        Me.Label11.Text = "Discount Amount"
+        Me.Label11.Text = "Discount AMT"
         '
         'txtDiscntAmt
         '
-        Me.txtDiscntAmt.Location = New System.Drawing.Point(621, 131)
+        Me.txtDiscntAmt.Location = New System.Drawing.Point(506, 145)
+        Me.txtDiscntAmt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtDiscntAmt.Name = "txtDiscntAmt"
-        Me.txtDiscntAmt.Size = New System.Drawing.Size(141, 22)
+        Me.txtDiscntAmt.Size = New System.Drawing.Size(94, 30)
         Me.txtDiscntAmt.TabIndex = 23
+        Me.txtDiscntAmt.Text = "0"
+        Me.txtDiscntAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(495, 162)
+        Me.Label12.Location = New System.Drawing.Point(600, 149)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(55, 16)
+        Me.Label12.Size = New System.Drawing.Size(52, 22)
         Me.Label12.TabIndex = 24
         Me.Label12.Text = "VAT(%)"
         '
         'txtVAT
         '
-        Me.txtVAT.Location = New System.Drawing.Point(621, 159)
+        Me.txtVAT.Location = New System.Drawing.Point(673, 145)
+        Me.txtVAT.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtVAT.Name = "txtVAT"
-        Me.txtVAT.Size = New System.Drawing.Size(141, 22)
+        Me.txtVAT.Size = New System.Drawing.Size(104, 30)
         Me.txtVAT.TabIndex = 25
+        Me.txtVAT.Text = "0"
+        Me.txtVAT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(495, 190)
+        Me.Label13.Location = New System.Drawing.Point(421, 182)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(77, 16)
+        Me.Label13.Size = New System.Drawing.Size(58, 22)
         Me.Label13.TabIndex = 26
-        Me.Label13.Text = "Net Amount"
+        Me.Label13.Text = "Net AMT"
         '
-        'Button1
+        'btnAdd
         '
-        Me.Button1.Location = New System.Drawing.Point(498, 217)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 23)
-        Me.Button1.TabIndex = 28
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAdd.BackColor = System.Drawing.Color.ForestGreen
+        Me.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.btnAdd.Location = New System.Drawing.Point(487, 245)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(142, 29)
+        Me.btnAdd.TabIndex = 32
+        Me.btnAdd.Text = "Add Item"
+        Me.btnAdd.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnRemove
         '
-        Me.Button2.Location = New System.Drawing.Point(621, 217)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(135, 23)
-        Me.Button2.TabIndex = 29
-        Me.Button2.Text = "Remove"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnRemove.BackColor = System.Drawing.Color.Red
+        Me.btnRemove.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnRemove.Location = New System.Drawing.Point(635, 245)
+        Me.btnRemove.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(142, 29)
+        Me.btnRemove.TabIndex = 33
+        Me.btnRemove.Text = "Remove"
+        Me.btnRemove.UseVisualStyleBackColor = False
         '
         'txtGrosamt
         '
         Me.txtGrosamt.Enabled = False
-        Me.txtGrosamt.Location = New System.Drawing.Point(621, 103)
+        Me.txtGrosamt.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGrosamt.Location = New System.Drawing.Point(506, 111)
+        Me.txtGrosamt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtGrosamt.Name = "txtGrosamt"
-        Me.txtGrosamt.Size = New System.Drawing.Size(141, 22)
+        Me.txtGrosamt.Size = New System.Drawing.Size(271, 30)
         Me.txtGrosamt.TabIndex = 21
+        Me.txtGrosamt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtNetAmt
         '
         Me.txtNetAmt.Enabled = False
-        Me.txtNetAmt.Location = New System.Drawing.Point(621, 187)
+        Me.txtNetAmt.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNetAmt.Location = New System.Drawing.Point(506, 178)
+        Me.txtNetAmt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNetAmt.Name = "txtNetAmt"
-        Me.txtNetAmt.Size = New System.Drawing.Size(141, 22)
+        Me.txtNetAmt.Size = New System.Drawing.Size(271, 30)
         Me.txtNetAmt.TabIndex = 27
+        Me.txtNetAmt.Text = "0"
+        Me.txtNetAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'ComboBox1
+        'cboCurrency
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(621, 73)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(141, 24)
-        Me.ComboBox1.TabIndex = 19
+        Me.cboCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboCurrency.FormattingEnabled = True
+        Me.cboCurrency.Location = New System.Drawing.Point(506, 77)
+        Me.cboCurrency.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cboCurrency.Name = "cboCurrency"
+        Me.cboCurrency.Size = New System.Drawing.Size(271, 30)
+        Me.cboCurrency.TabIndex = 19
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(495, 77)
+        Me.Label14.Location = New System.Drawing.Point(421, 83)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(53, 16)
+        Me.Label14.Size = New System.Drawing.Size(55, 22)
         Me.Label14.TabIndex = 18
-        Me.Label14.Text = "Gender"
+        Me.Label14.Text = "Curency"
         '
-        'dgvOthers
+        'dgvFilter
         '
-        Me.dgvOthers.AllowDrop = True
-        Me.dgvOthers.AllowUserToAddRows = False
-        Me.dgvOthers.AllowUserToDeleteRows = False
-        Me.dgvOthers.AllowUserToResizeColumns = False
-        Me.dgvOthers.AllowUserToResizeRows = False
+        Me.dgvFilter.AllowDrop = True
+        Me.dgvFilter.AllowUserToAddRows = False
+        Me.dgvFilter.AllowUserToDeleteRows = False
+        Me.dgvFilter.AllowUserToResizeColumns = False
+        Me.dgvFilter.AllowUserToResizeRows = False
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.dgvOthers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.dgvOthers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvOthers.ColumnHeadersVisible = False
-        Me.dgvOthers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.Column5, Me.Column6, Me.DataGridViewTextBoxColumn8})
+        Me.dgvFilter.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.dgvFilter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvFilter.ColumnHeadersVisible = False
+        Me.dgvFilter.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.Column5, Me.Column6, Me.DataGridViewTextBoxColumn8, Me.Column3, Me.Column4, Me.Column7})
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = System.Drawing.Color.LightBlue
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvOthers.DefaultCellStyle = DataGridViewCellStyle9
-        Me.dgvOthers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.dgvOthers.Location = New System.Drawing.Point(135, 468)
-        Me.dgvOthers.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.dgvOthers.MultiSelect = False
-        Me.dgvOthers.Name = "dgvOthers"
-        Me.dgvOthers.ReadOnly = True
-        Me.dgvOthers.RowHeadersVisible = False
-        Me.dgvOthers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvOthers.Size = New System.Drawing.Size(125, 28)
-        Me.dgvOthers.TabIndex = 32
-        Me.dgvOthers.Visible = False
+        Me.dgvFilter.DefaultCellStyle = DataGridViewCellStyle9
+        Me.dgvFilter.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.dgvFilter.Location = New System.Drawing.Point(18, 451)
+        Me.dgvFilter.MultiSelect = False
+        Me.dgvFilter.Name = "dgvFilter"
+        Me.dgvFilter.ReadOnly = True
+        Me.dgvFilter.RowHeadersVisible = False
+        Me.dgvFilter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvFilter.Size = New System.Drawing.Size(308, 39)
+        Me.dgvFilter.TabIndex = 32
+        Me.dgvFilter.Visible = False
         '
         'DataGridViewTextBoxColumn5
         '
@@ -497,34 +552,98 @@ Partial Class frm_sale_inv_add
         DataGridViewCellStyle7.Format = "N2"
         DataGridViewCellStyle7.NullValue = "0"
         Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
-        Me.Column6.HeaderText = "Type"
+        Me.Column6.HeaderText = "Sex"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
+        Me.Column6.Width = 60
         '
         'DataGridViewTextBoxColumn8
         '
         DataGridViewCellStyle8.Format = "N2"
         DataGridViewCellStyle8.NullValue = "0"
         Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Price"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Phone#"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
         '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Mobile#"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "EMail"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 120
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Address"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 200
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(421, 216)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(79, 22)
+        Me.Label15.TabIndex = 28
+        Me.Label15.Text = "Deposit AMT"
+        '
+        'txtDeposit
+        '
+        Me.txtDeposit.Location = New System.Drawing.Point(506, 212)
+        Me.txtDeposit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtDeposit.Name = "txtDeposit"
+        Me.txtDeposit.Size = New System.Drawing.Size(94, 30)
+        Me.txtDeposit.TabIndex = 29
+        Me.txtDeposit.Text = "0"
+        Me.txtDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(600, 216)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(75, 22)
+        Me.Label16.TabIndex = 30
+        Me.Label16.Text = "End Amount"
+        '
+        'txtEndAmt
+        '
+        Me.txtEndAmt.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEndAmt.Location = New System.Drawing.Point(673, 212)
+        Me.txtEndAmt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtEndAmt.Name = "txtEndAmt"
+        Me.txtEndAmt.Size = New System.Drawing.Size(104, 30)
+        Me.txtEndAmt.TabIndex = 31
+        Me.txtEndAmt.Text = "0"
+        Me.txtEndAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frm_sale_inv_add
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(783, 507)
-        Me.Controls.Add(Me.dgvOthers)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.ClientSize = New System.Drawing.Size(798, 493)
+        Me.Controls.Add(Me.dgvFilter)
+        Me.Controls.Add(Me.cboCurrency)
         Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnRemove)
+        Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.txtNetAmt)
         Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.txtEndAmt)
+        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.txtVAT)
+        Me.Controls.Add(Me.txtDeposit)
         Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.txtDiscntAmt)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.txtGrosamt)
@@ -549,8 +668,9 @@ Partial Class frm_sale_inv_add
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frm_sale_inv_add"
@@ -560,7 +680,7 @@ Partial Class frm_sale_inv_add
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgvItem, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvOthers, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvFilter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -594,20 +714,28 @@ Partial Class frm_sale_inv_add
     Friend WithEvents Label12 As Label
     Friend WithEvents txtVAT As TextBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents btnRemove As Button
     Friend WithEvents txtGrosamt As TextBox
     Friend WithEvents txtNetAmt As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboCurrency As ComboBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents dgvOthers As DataGridView
+    Friend WithEvents dgvFilter As DataGridView
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label15 As Label
+    Friend WithEvents txtDeposit As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txtEndAmt As TextBox
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents qty As DataGridViewTextBoxColumn
+    Friend WithEvents unitprice As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
 End Class

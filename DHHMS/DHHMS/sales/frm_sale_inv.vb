@@ -39,11 +39,17 @@
             .txtInvNum.Text = inv_num
 
 
-            Dim sqlStr As String = "select fld_valu,concat(fld_valu, '- ', fld_valu_desc_en) val_desc from tswa_field_values f where f.fld_nm='SEX_CODE' and status='A'"
+            Dim sqlStr As String = "select fld_valu,concat(fld_valu, ' - ', fld_valu_desc_en) val_desc from tswa_field_values f where f.fld_nm='SEX_CODE' and status='A'"
             Dim tbl As DataTable = dbHpr.SelectData(sqlStr, "client type")
             .cboSexcode.DataSource = tbl
             .cboSexcode.DisplayMember = "val_desc"
             .cboSexcode.ValueMember = "fld_valu"
+
+            sqlStr = "select crcy_code,CONCAT(crcy_code,' - ', crcy_desc_en,' - ', crcy_amt) crcy_desc from tcurrency_masters where stat_cd='A'"
+            tbl = dbHpr.SelectData(sqlStr, "Currency")
+            .cboCurrency.DataSource = tbl
+            .cboCurrency.DisplayMember = "crcy_desc"
+            .cboCurrency.ValueMember = "crcy_code"
 
             .ShowDialog()
             .Close()
@@ -146,12 +152,12 @@
     End Sub
 
     Private Sub dgv1_SelectionChanged(sender As Object, e As EventArgs) Handles dgv1.SelectionChanged
-        On Error Resume Next
-        PictureBox1.Image = Nothing
-        PictureBox2.Image = Nothing
-        'photo
-        dbHpr.ShowImageStorProc("get_cli_photo", PictureBox1, "rbk_num", dgv1.SelectedRows(0).Cells(0).Value, "doc_typ", "F") 'front
-        dbHpr.ShowImageStorProc("get_cli_photo", PictureBox2, "rbk_num", dgv1.SelectedRows(0).Cells(0).Value, "doc_typ", "B") 'back
+        'On Error Resume Next
+        'PictureBox1.Image = Nothing
+        'PictureBox2.Image = Nothing
+        ''photo
+        'dbHpr.ShowImageStorProc("get_cli_photo", PictureBox1, "rbk_num", dgv1.SelectedRows(0).Cells(0).Value, "doc_typ", "F") 'front
+        'dbHpr.ShowImageStorProc("get_cli_photo", PictureBox2, "rbk_num", dgv1.SelectedRows(0).Cells(0).Value, "doc_typ", "B") 'back
 
     End Sub
 End Class

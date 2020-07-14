@@ -38,6 +38,27 @@ Module GBModule
             e.Handled = True
         End If
     End Sub
+    Public Sub NumericInput(ByVal e As Object, ByVal DECIMAL_SEPARATOR As String, ByVal THOUSAND_SEPARATOR As String, Optional ByVal IsMinusSign As Boolean = False)
+        Dim MinusSign As String = "-"
+        If IsMinusSign = False Then
+            MinusSign = ""
+        End If
+        If (e.KeyChar >= "0" And e.KeyChar <= "9") Or e.KeyChar = DECIMAL_SEPARATOR Or e.KeyChar = Chr(8) Or e.keychar = THOUSAND_SEPARATOR Then
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Public Sub NumericInput(ByVal e As Object, ByVal DECIMALorTHOUSAND_SEPARATOR As String, Optional ByVal IsMinusSign As Boolean = False)
+        Dim MinusSign As String = "-"
+        If IsMinusSign = False Then
+            MinusSign = ""
+        End If
+        If (e.KeyChar >= "0" And e.KeyChar <= "9") Or e.KeyChar = Chr(8) Or e.keychar = DECIMALorTHOUSAND_SEPARATOR Or e.keychar = MinusSign Then
+        Else
+            e.Handled = True
+        End If
+    End Sub
 
     Public Function isDate(valDt As String)
         Try
