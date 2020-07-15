@@ -53,7 +53,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GSP_GHMS\GSP_GHMS\bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\..\..\..\Projtects\ssms\SSMS\bin\Debug\PdfSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -143,10 +146,10 @@
     <Compile Include="sales\frm_sale_inv_add.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sales\frm_sale_list.Designer.vb">
-      <DependentUpon>frm_sale_list.vb</DependentUpon>
+    <Compile Include="sales\frm_sale_inv_print.Designer.vb">
+      <DependentUpon>frm_sale_inv_print.vb</DependentUpon>
     </Compile>
-    <Compile Include="sales\frm_sale_list.vb">
+    <Compile Include="sales\frm_sale_inv_print.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Users\userGroupMapping.Designer.vb">
@@ -228,8 +231,8 @@
     <EmbeddedResource Include="sales\frm_sale_inv_add.resx">
       <DependentUpon>frm_sale_inv_add.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sales\frm_sale_list.resx">
-      <DependentUpon>frm_sale_list.vb</DependentUpon>
+    <EmbeddedResource Include="sales\frm_sale_inv_print.resx">
+      <DependentUpon>frm_sale_inv_print.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\userGroupMapping.resx">
       <DependentUpon>userGroupMapping.vb</DependentUpon>
