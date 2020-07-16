@@ -84,22 +84,22 @@ Public Class frmBill002AddItem
         Dim tbl As DataTable = dbHpr.SelectData(str, "ItemList")
         If tbl.Rows.Count > 0 Then
             'CLEAR COL ROWS
-            dgvOthers.Rows.Clear()
-            dgvOthers.Height = 20
+            dgfilter.Rows.Clear()
+            dgfilter.Height = 20
             'SET NEW ROWS
             For Each r As DataRow In tbl.Rows
-                dgvOthers.Rows.Add(r(0), r(1), r(2))
-                dgvOthers.Height = dgvOthers.Height + 20
+                dgfilter.Rows.Add(r(0), r(1), r(2))
+                dgfilter.Height = dgfilter.Height + 20
             Next
-            dgvOthers.Visible = True
+            dgfilter.Visible = True
 
             'SET LOCATION
-            dgvOthers.Left = txtName.Left
-            dgvOthers.Top = txtName.Bottom
-            dgvOthers.Width = txtName.Width
+            dgfilter.Left = txtName.Left
+            dgfilter.Top = txtName.Bottom
+            dgfilter.Width = txtName.Width
 
         Else
-            dgvOthers.Visible = False
+            dgfilter.Visible = False
         End If
     End Sub
 
@@ -123,56 +123,56 @@ Public Class frmBill002AddItem
             Else
                 ItemList()
             End If
-            If dgvOthers.Visible = True Then
-                dgvOthers.Focus()
-                dgvOthers.Rows(0).Selected = True
+            If dgfilter.Visible = True Then
+                dgfilter.Focus()
+                dgfilter.Rows(0).Selected = True
             End If
         ElseIf e.KeyCode = Keys.Delete Or e.KeyCode = Keys.Back Then
             txtCode.Text = ""
             txtPrice.Text = "0"
         ElseIf e.KeyCode = Keys.Escape Then
-            dgvOthers.Visible = False
+            dgfilter.Visible = False
             txtName.Focus()
         ElseIf e.KeyCode = Keys.Up Or e.KeyCode = Keys.Down Then
-            If dgvOthers.Visible = True Then
-                dgvOthers.Focus()
+            If dgfilter.Visible = True Then
+                dgfilter.Focus()
             End If
         End If
     End Sub
 
     Private Sub txtName_TextChanged(sender As Object, e As EventArgs) Handles txtName.TextChanged
-        Dim str As String = "select  m.menu_num  from tgh_food_menus m where m.stat_cd='A'  and  dbo.UncodeConvert(lower(menu_nm)) = dbo.UncodeConvert(N'" & txtName.Text.ToLower & "')  "
+        On Error Resume Next
+        Dim str As String = "select top 5 m.menu_num,m.menu_nm,m.menu_price from tgh_food_menus m where m.stat_cd='A'  and dbo.UncodeConvert(lower(menu_nm)) Like '%'+ dbo.UncodeConvert(N'" & txtName.Text.ToLower & "') +'%'  "
         Dim tbl As DataTable = dbHpr.SelectData(str, "ItemList")
-        If tbl.Rows.Count = 0 Then
+        If tbl.Rows.Count <= 0 Then
             txtCode.Text = ""
             txtPrice.Enabled = True
-        Else
-            txtPrice.Enabled = False
+            dgfilter.Visible = False
         End If
     End Sub
 
-    Private Sub dgvOthers_KeyDown(sender As Object, e As KeyEventArgs) Handles dgvOthers.KeyDown
+    Private Sub dgvOthers_KeyDown(sender As Object, e As KeyEventArgs) Handles dgfilter.KeyDown
         If e.KeyCode = Keys.Enter Then
             Get_Val_item()
-            dgvOthers.Visible = False
+            dgfilter.Visible = False
         ElseIf e.KeyCode = Keys.Escape Then
-            dgvOthers.Visible = False
+            dgfilter.Visible = False
         End If
     End Sub
     Sub Get_Val_item()
-        If dgvOthers.SelectedRows.Count > 0 Then
+        If dgfilter.SelectedRows.Count > 0 Then
             txtCode.Text = ""
             txtName.Text = ""
             txtPrice.Text = ""
-            txtCode.Text = dgvOthers.SelectedCells(0).Value
-            txtName.Text = dgvOthers.SelectedCells(1).Value
-            txtPrice.Text = dgvOthers.SelectedCells(2).Value
+            txtCode.Text = dgfilter.SelectedCells(0).Value
+            txtName.Text = dgfilter.SelectedCells(1).Value
+            txtPrice.Text = dgfilter.SelectedCells(2).Value
             txtPrice.Enabled = False
             chkPrice.Enabled = True
             chkPrice.CheckState = False
             txtQty.Focus()
         Else
-            dgvOthers.Visible = False
+            dgfilter.Visible = False
         End If
     End Sub
 
@@ -194,13 +194,13 @@ Public Class frmBill002AddItem
         txtAmt.Text = IIf(IsNumeric(txtPrice.Text) = True, txtPrice.Text, 0) * IIf(IsNumeric(txtQty.Text) = True, txtQty.Text, 0)
     End Sub
 
-    Private Sub dgvOthers_LostFocus(sender As Object, e As EventArgs) Handles dgvOthers.LostFocus
-        dgvOthers.Visible = False
+    Private Sub dgvOthers_LostFocus(sender As Object, e As EventArgs) Handles dgfilter.LostFocus
+        dgfilter.Visible = False
     End Sub
 
-    Private Sub dgvOthers_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvOthers.CellDoubleClick
+    Private Sub dgvOthers_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgfilter.CellDoubleClick
         Get_Val_item()
-        dgvOthers.Visible = False
+        dgfilter.Visible = False
     End Sub
 
     Private Sub txtPrice_KeyDown(sender As Object, e As KeyEventArgs) Handles txtQty.KeyDown, txtPrice.KeyDown, txtAmt.KeyDown

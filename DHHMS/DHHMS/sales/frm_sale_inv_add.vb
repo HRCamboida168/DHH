@@ -1,6 +1,8 @@
 ﻿Imports System.Windows.Forms
 Imports System.Data.SqlClient
 Imports System.Drawing.Printing
+Imports System.ComponentModel
+
 Public Class frm_sale_inv_add
     Dim dbhpr As New db_helper
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
@@ -33,7 +35,7 @@ Public Class frm_sale_inv_add
             End If
         End If
     End Sub
-    Private Sub txtphoneNum_KeyDown(sender As Object, e As KeyEventArgs) Handles txtVAT.KeyDown, txtphoneNum.KeyDown, txtNetAmt.KeyDown, txtMobilNum.KeyDown, txtMail.KeyDown, txtGrosamt.KeyDown, txtDiscntAmt.KeyDown, txtAddress.KeyDown, dtpInvDt.KeyDown, cboCurrency.KeyDown, cboSexcode.KeyDown, txtEndAmt.KeyDown, txtDeposit.KeyDown
+    Private Sub txtphoneNum_KeyDown(sender As Object, e As KeyEventArgs) Handles txtVAT.KeyDown, txtphoneNum.KeyDown, txtNetAmt.KeyDown, txtMobilNum.KeyDown, txtMail.KeyDown, txtGrosamt.KeyDown, txtDiscntAmt.KeyDown, txtAddress.KeyDown, dtpInvDt.KeyDown, cboSexcode.KeyDown
         If e.KeyCode = Keys.Enter Then
             SelectNextControl(sender, True, True, True, True)
         End If
@@ -146,22 +148,29 @@ Public Class frm_sale_inv_add
         Get_Val_item()
         dgvFilter.Visible = False
     End Sub
-
+    Dim old_netAmt As Double
+    Dim old_cli_length As Integer
+    Dim new_netAmt As Double
+    Dim new_cli_length As Integer
     Private Sub frm_sale_inv_add_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvItem.Columns("qty").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
         dgvItem.Columns("unitprice").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvItem.Columns("total").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
+
+        'store old values
+        old_netAmt = IIf(IsNumeric(txtNetAmt.Text) = False, 0, txtNetAmt.Text)
+        old_cli_length = txtcli_num.Text.Trim.Length + txtphoneNum.Text.Trim.Length + txtMobilNum.Text.Trim.Length + txtAddress.Text.Trim.Length + txtMail.Text.Length
     End Sub
 
     Private Sub dgvItem_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles dgvItem.RowStateChanged
         CalAmt()
     End Sub
 
-    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVAT.KeyPress, txtNetAmt.KeyPress, txtGrosamt.KeyPress, txtDiscntAmt.KeyPress, txtEndAmt.KeyPress, txtDeposit.KeyPress
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVAT.KeyPress, txtNetAmt.KeyPress, txtGrosamt.KeyPress, txtDiscntAmt.KeyPress
         NumericInput(e, ".", False)
     End Sub
 
-    Private Sub txtGrosamt_TextChanged(sender As Object, e As EventArgs) Handles txtGrosamt.TextChanged, txtVAT.TextChanged, txtNetAmt.TextChanged, txtEndAmt.TextChanged, txtDiscntAmt.TextChanged, txtDeposit.TextChanged
+    Private Sub txtGrosamt_TextChanged(sender As Object, e As EventArgs) Handles txtGrosamt.TextChanged, txtVAT.TextChanged, txtNetAmt.TextChanged, txtDiscntAmt.TextChanged
         If sender.text.trim = "" Then
             Exit Sub
         End If
@@ -178,12 +187,11 @@ Public Class frm_sale_inv_add
         Dim gross_amt As Double = IIf(IsNumeric(txtGrosamt.Text) = False, 0, CDbl(txtGrosamt.Text))
         Dim dscnt_amt As Double = IIf(IsNumeric(txtDiscntAmt.Text) = False, 0, CDbl(txtDiscntAmt.Text))
         Dim vat As Double = IIf(IsNumeric(txtVAT.Text) = False, 0, CDbl(txtVAT.Text))
+
         'Net
-        txtNetAmt.Text = Math.Round((gross_amt - dscnt_amt) + (((gross_amt - dscnt_amt) * vat) / 100), 2)
-        'depost = net if full payment
-        Dim deposit_amt As Double = IIf(IsNumeric(txtDeposit.Text) = False, txtNetAmt.Text, CDbl(txtDeposit.Text))
-        'balance
-        txtEndAmt.Text = Math.Round(CDbl(txtNetAmt.Text) - deposit_amt, 2)
+        Dim net_amt As Double = Math.Round((gross_amt - dscnt_amt) + (((gross_amt - dscnt_amt) * vat) / 100), 2)
+        txtNetAmt.Text = net_amt
+
     End Sub
 
     Private Sub dgvFilter_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvFilter.CellDoubleClick
@@ -209,13 +217,13 @@ Public Class frm_sale_inv_add
             'Dim inv_num_dhr As String = "B" & Format(Now, "yyyyMM")
             'Dim inv_num As String = dbhpr.GenerateID("select max(inv_num) from tdhh_invoice_masters where substring(inv_num,1,7)='" & inv_num_dhr & "'", 4, inv_num_dhr)
             cmd.CommandText = "tdhh_invoice_masters_ins"
-            CreatePar(cmd, "inv_num", txtInvNum.Text, "cli_num", txtClinm.Text,
+            CreatePar(cmd, "inv_num", txtInvNum.Text, "cli_num", txtcli_num.Text,
                       "inv_issu_dt", dtpInvDt.Value.Date,
                       "gros_amt", txtGrosamt.Text, "dscnt_amt", txtDiscntAmt.Text, "vat_amt", txtVAT.Text,
                       "net_amt", txtNetAmt.Text, "remarks", "",
                       "inv_status", inv_status,
                       "crcy_code", cboCurrency.SelectedValue,
-                      "deposit_amt", txtDeposit.Text, "pening_amt", CDbl(txtNetAmt.Text) - CDbl(txtDeposit.Text),
+                      "deposit_amt", 0, "pening_amt", txtNetAmt.Text,
                       "rec_status", "A",
                       "created_dt", Now.Date, "created_by", MasterFRM.loginName)
             cmd.ExecuteNonQuery()
@@ -223,12 +231,12 @@ Public Class frm_sale_inv_add
             '--<< save master
             '==> Save detail
             cmd.CommandText = "tdhh_invoice_details_ins"
-            For i As Int16 = 0 To dgvItem.RowCount
+            For i As Int16 = 0 To dgvItem.RowCount - 1
                 CreatePar(cmd, "inv_num", txtInvNum.Text,
                           "itm_num", dgvItem.Rows(i).Cells(0).Value,
-                          "itm_qty", dgvItem.Rows(i).Cells(2).Value,
-                          "unit_price", dgvItem.Rows(i).Cells(3).Value,
-                          "tot_amt", dgvItem.Rows(i).Cells(4).Value,
+                          "itm_qty", CDbl(dgvItem.Rows(i).Cells(2).Value),
+                          "unit_price", CDbl(dgvItem.Rows(i).Cells(3).Value),
+                          "tot_amt", CDbl(dgvItem.Rows(i).Cells(4).Value),
                           "remarks", dgvItem.Rows(i).Cells(1).Value)
                 cmd.ExecuteNonQuery()
                 cmd.Parameters.Clear()
@@ -241,12 +249,12 @@ Public Class frm_sale_inv_add
         End Try
 
     End Sub
-    Private Sub GenPayment(inv_num As String, cli_num As String, str_bal As Double, pay_amt As Double, end_bal As Double)
+    Private Sub GenPayment(inv_num As String, cli_num As String, pmt_dt As Date, str_bal As Double, pay_amt As Double, end_bal As Double)
         Try
             '==>> Save Payment details
             Dim pmt_num As String = dbhpr.GenerateID("Select max(pmt_num) from tdhh_invoice_payments where inv_num='" & inv_num & "'")
             dbhpr.ExecProc("tdhh_invoice_payments_ins", "pmt_num", txtInvNum.Text, "inv_num", txtInvNum.Text, "cli_num", txtClinm.Text,
-                   "pmt_dt", Now.Date, "pmt_amt", txtDeposit.Text, "end_bal", txtEndAmt.Text, "rec_status", IIf(CDbl(txtEndAmt.Text) = 0, "P", "B"),
+                   "pmt_dt", pmt_dt, "pmt_amt", pay_amt, "end_bal", end_bal, "rec_status", IIf(end_bal = 0, "P", "B"),
                    "created_dt", Now.Date, "created_by", MasterFRM.loginName)
             '==<< Save Payment details
         Catch ex As Exception
@@ -269,14 +277,24 @@ Public Class frm_sale_inv_add
             err_msg = "04" 'Net amount can't <=0
             Exit Sub
         End If
-        If CDbl(txtDeposit.Text) > CDbl(txtNetAmt.Text) Then
-            MsgBox("Deposit can't greater then Net amount!!!", MsgBoxStyle.Critical, "Invoice")
-            err_msg = "05"
-            Exit Sub
-        End If
+
         err_msg = "00" ' no error
     End Sub
     Private Sub btnSavePrint_Click(sender As Object, e As EventArgs) Handles btnSavePrint.Click
+        Dim errSms As String = ""
+        InvoiceValidat(errSms)
+        If errSms <> "00" Then
+            Exit Sub
+        End If
+        Dim inv_status As String = "P"
+
+        SaveInvoice(inv_status)
+
+        'add to Dg master
+        addGridMaster(txtInvNum.Text)
+
+        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.Close()
 
     End Sub
 
@@ -290,7 +308,68 @@ Public Class frm_sale_inv_add
 
         SaveInvoice(inv_status)
 
+        'add to master Dg
+        addGridMaster(txtInvNum.Text)
+
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
+    End Sub
+
+    Private Sub cboCurrency_KeyDown(sender As Object, e As KeyEventArgs) Handles cboCurrency.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnAdd.Focus()
+        End If
+    End Sub
+    Private Sub addGridMaster(inv_num As String)
+        Try
+            With frm_sale_inv
+
+                'disable button 
+                Dim sqlStr As String = ""
+                Dim tbl As DataTable = Nothing
+
+                sqlStr = "select v.inv_num,v.cli_num,v.cli_nm,v.phone_num,v.mobil_num,v.inv_issu_dt,v.gros_amt,v.dscnt_amt,v.vat_amt,v.net_amt,v.crcy_code,v.deposit_amt,v.pening_amt,v.inv_status from vw_invoice_clients v where v.inv_num='" & inv_num & "'"
+                tbl = dbhpr.SelectData(sqlStr, "Booking")
+
+                For Each r As DataRow In tbl.Rows
+                    .dgInvMster.Rows.Add(r("inv_num"),
+                              r("cli_num"),
+                              r("cli_nm"),
+                              r("phone_num"),
+                              r("mobil_num"),
+                              r("inv_issu_dt"),
+                              r("gros_amt"),
+                              r("dscnt_amt"),
+                              r("vat_amt"),
+                              r("net_amt"),
+                              r("deposit_amt"),
+                              r("pening_amt"),
+                              r("crcy_code"),
+                              r("inv_status"))
+                Next
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+        End Try
+
+    End Sub
+
+    Private Sub txtClinm_TextChanged(sender As Object, e As EventArgs) Handles txtClinm.TextChanged
+        On Error Resume Next
+        Dim str As String = "select top 10 cli_num,cli_nm,sex_code,phone_num,mobil_num,mail_addr,addr_l1 from tdhh_client_details  where  dbo.UncodeConvert(lower(cli_nm)) Like '%'+ dbo.UncodeConvert(N'" & txtClinm.Text.ToLower & "') +'%'  "
+        Dim tbl As DataTable = dbhpr.SelectData(str, "ItemList")
+        If tbl.Rows.Count <= 0 Then
+            dgvFilter.Visible = False
+        End If
+    End Sub
+
+    Private Sub frm_sale_inv_add_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        new_netAmt = IIf(IsNumeric(txtNetAmt.Text) = False, 0, txtNetAmt.Text)
+        new_cli_length = txtcli_num.Text.Trim.Length + txtphoneNum.Text.Trim.Length + txtMobilNum.Text.Trim.Length + txtAddress.Text.Trim.Length + txtMail.Text.Length
+        If (old_netAmt + old_cli_length) <> (new_netAmt + new_cli_length) Then
+            If MsgBox("There are some change in form!!!, Do you want to close form without save?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.No Then
+                e.Cancel = True
+            End If
+        End If
     End Sub
 End Class

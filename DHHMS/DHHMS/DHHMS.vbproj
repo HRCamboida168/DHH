@@ -134,6 +134,12 @@
     <Compile Include="sales\frmBill002AddItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sales\frmBill005PrintPreview.designer.vb">
+      <DependentUpon>frmBill005PrintPreview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sales\frmBill005PrintPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sales\frm_sale_inv.designer.vb">
       <DependentUpon>frm_sale_inv.vb</DependentUpon>
     </Compile>
@@ -150,6 +156,12 @@
       <DependentUpon>frm_sale_inv_print.vb</DependentUpon>
     </Compile>
     <Compile Include="sales\frm_sale_inv_print.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sales\frm_sale_inv_printParm.Designer.vb">
+      <DependentUpon>frm_sale_inv_printParm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sales\frm_sale_inv_printParm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Users\userGroupMapping.Designer.vb">
@@ -225,6 +237,9 @@
     <EmbeddedResource Include="sales\frmBill002AddItem.resx">
       <DependentUpon>frmBill002AddItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sales\frmBill005PrintPreview.resx">
+      <DependentUpon>frmBill005PrintPreview.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sales\frm_sale_inv.resx">
       <DependentUpon>frm_sale_inv.vb</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sales\frm_sale_inv_print.resx">
       <DependentUpon>frm_sale_inv_print.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales\frm_sale_inv_printParm.resx">
+      <DependentUpon>frm_sale_inv_printParm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\userGroupMapping.resx">
       <DependentUpon>userGroupMapping.vb</DependentUpon>

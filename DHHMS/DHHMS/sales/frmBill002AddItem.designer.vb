@@ -22,13 +22,13 @@ Partial Class frmBill002AddItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
-        Me.dgvOthers = New System.Windows.Forms.DataGridView()
+        Me.dgfilter = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,7 +44,7 @@ Partial Class frmBill002AddItem
         Me.txtCode = New System.Windows.Forms.TextBox()
         Me.chkPrice = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.dgvOthers, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgfilter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -84,36 +84,36 @@ Partial Class frmBill002AddItem
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancel"
         '
-        'dgvOthers
+        'dgfilter
         '
-        Me.dgvOthers.AllowDrop = True
-        Me.dgvOthers.AllowUserToAddRows = False
-        Me.dgvOthers.AllowUserToDeleteRows = False
-        Me.dgvOthers.AllowUserToResizeColumns = False
-        Me.dgvOthers.AllowUserToResizeRows = False
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.dgvOthers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
-        Me.dgvOthers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvOthers.ColumnHeadersVisible = False
-        Me.dgvOthers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.Column5, Me.DataGridViewTextBoxColumn8})
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.LightBlue
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvOthers.DefaultCellStyle = DataGridViewCellStyle12
-        Me.dgvOthers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.dgvOthers.Location = New System.Drawing.Point(71, 172)
-        Me.dgvOthers.MultiSelect = False
-        Me.dgvOthers.Name = "dgvOthers"
-        Me.dgvOthers.ReadOnly = True
-        Me.dgvOthers.RowHeadersVisible = False
-        Me.dgvOthers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvOthers.Size = New System.Drawing.Size(134, 36)
-        Me.dgvOthers.TabIndex = 15
-        Me.dgvOthers.Visible = False
+        Me.dgfilter.AllowDrop = True
+        Me.dgfilter.AllowUserToAddRows = False
+        Me.dgfilter.AllowUserToDeleteRows = False
+        Me.dgfilter.AllowUserToResizeColumns = False
+        Me.dgfilter.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.dgfilter.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgfilter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgfilter.ColumnHeadersVisible = False
+        Me.dgfilter.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.Column5, Me.DataGridViewTextBoxColumn8})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgfilter.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgfilter.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.dgfilter.Location = New System.Drawing.Point(71, 172)
+        Me.dgfilter.MultiSelect = False
+        Me.dgfilter.Name = "dgfilter"
+        Me.dgfilter.ReadOnly = True
+        Me.dgfilter.RowHeadersVisible = False
+        Me.dgfilter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgfilter.Size = New System.Drawing.Size(134, 36)
+        Me.dgfilter.TabIndex = 15
+        Me.dgfilter.Visible = False
         '
         'DataGridViewTextBoxColumn5
         '
@@ -132,9 +132,9 @@ Partial Class frmBill002AddItem
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle11.Format = "N2"
-        DataGridViewCellStyle11.NullValue = "0"
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn8.HeaderText = "Price"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
@@ -255,7 +255,7 @@ Partial Class frmBill002AddItem
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(451, 225)
-        Me.Controls.Add(Me.dgvOthers)
+        Me.Controls.Add(Me.dgfilter)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
@@ -278,7 +278,7 @@ Partial Class frmBill002AddItem
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Invoice Item"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.dgvOthers, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgfilter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -286,7 +286,7 @@ Partial Class frmBill002AddItem
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
-    Friend WithEvents dgvOthers As DataGridView
+    Friend WithEvents dgfilter As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label

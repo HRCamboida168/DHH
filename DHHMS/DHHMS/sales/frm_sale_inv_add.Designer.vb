@@ -22,15 +22,15 @@ Partial Class frm_sale_inv_add
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnSavePrint = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
@@ -80,10 +80,6 @@ Partial Class frm_sale_inv_add
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtDeposit = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txtEndAmt = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvItem, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +92,7 @@ Partial Class frm_sale_inv_add
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.85938!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.14063!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.btnSavePrint, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 1, 0)
@@ -114,7 +110,7 @@ Partial Class frm_sale_inv_add
         Me.btnSavePrint.Location = New System.Drawing.Point(3, 4)
         Me.btnSavePrint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSavePrint.Name = "btnSavePrint"
-        Me.btnSavePrint.Size = New System.Drawing.Size(131, 29)
+        Me.btnSavePrint.Size = New System.Drawing.Size(129, 29)
         Me.btnSavePrint.TabIndex = 0
         Me.btnSavePrint.Text = "Save Print Invoice"
         '
@@ -122,7 +118,7 @@ Partial Class frm_sale_inv_add
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(249, 4)
+        Me.Cancel_Button.Location = New System.Drawing.Point(248, 4)
         Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Cancel_Button.Name = "Cancel_Button"
         Me.Cancel_Button.Size = New System.Drawing.Size(79, 29)
@@ -132,17 +128,17 @@ Partial Class frm_sale_inv_add
         'OK_Button
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(140, 4)
+        Me.OK_Button.Location = New System.Drawing.Point(138, 4)
         Me.OK_Button.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(102, 29)
+        Me.OK_Button.Size = New System.Drawing.Size(101, 29)
         Me.OK_Button.TabIndex = 1
         Me.OK_Button.Text = "Save Close"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(421, 15)
+        Me.Label1.Location = New System.Drawing.Point(522, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(57, 22)
         Me.Label1.TabIndex = 14
@@ -151,11 +147,11 @@ Partial Class frm_sale_inv_add
         'txtInvNum
         '
         Me.txtInvNum.Enabled = False
-        Me.txtInvNum.Location = New System.Drawing.Point(506, 11)
+        Me.txtInvNum.Location = New System.Drawing.Point(606, 11)
         Me.txtInvNum.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtInvNum.Name = "txtInvNum"
         Me.txtInvNum.ReadOnly = True
-        Me.txtInvNum.Size = New System.Drawing.Size(177, 30)
+        Me.txtInvNum.Size = New System.Drawing.Size(168, 30)
         Me.txtInvNum.TabIndex = 15
         '
         'cboSexcode
@@ -172,10 +168,10 @@ Partial Class frm_sale_inv_add
         '
         Me.dtpInvDt.CustomFormat = "dd/MMM/yyyy"
         Me.dtpInvDt.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpInvDt.Location = New System.Drawing.Point(506, 44)
+        Me.dtpInvDt.Location = New System.Drawing.Point(606, 44)
         Me.dtpInvDt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtpInvDt.Name = "dtpInvDt"
-        Me.dtpInvDt.Size = New System.Drawing.Size(271, 30)
+        Me.dtpInvDt.Size = New System.Drawing.Size(168, 30)
         Me.dtpInvDt.TabIndex = 17
         '
         'Label2
@@ -192,7 +188,7 @@ Partial Class frm_sale_inv_add
         Me.txtClinm.Location = New System.Drawing.Point(103, 44)
         Me.txtClinm.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtClinm.Name = "txtClinm"
-        Me.txtClinm.Size = New System.Drawing.Size(310, 30)
+        Me.txtClinm.Size = New System.Drawing.Size(407, 30)
         Me.txtClinm.TabIndex = 3
         '
         'txtcli_num
@@ -217,7 +213,7 @@ Partial Class frm_sale_inv_add
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(421, 48)
+        Me.Label4.Location = New System.Drawing.Point(522, 48)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(76, 22)
         Me.Label4.TabIndex = 16
@@ -271,7 +267,7 @@ Partial Class frm_sale_inv_add
         Me.txtMail.Location = New System.Drawing.Point(103, 178)
         Me.txtMail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtMail.Name = "txtMail"
-        Me.txtMail.Size = New System.Drawing.Size(310, 30)
+        Me.txtMail.Size = New System.Drawing.Size(407, 30)
         Me.txtMail.TabIndex = 11
         '
         'Label8
@@ -288,7 +284,7 @@ Partial Class frm_sale_inv_add
         Me.txtAddress.Location = New System.Drawing.Point(103, 212)
         Me.txtAddress.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(310, 30)
+        Me.txtAddress.Size = New System.Drawing.Size(407, 30)
         Me.txtAddress.TabIndex = 13
         '
         'Label9
@@ -320,18 +316,18 @@ Partial Class frm_sale_inv_add
         Me.dgvItem.AllowUserToOrderColumns = True
         Me.dgvItem.AllowUserToResizeColumns = False
         Me.dgvItem.AllowUserToResizeRows = False
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.dgvItem.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.dgvItem.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvItem.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.qty, Me.unitprice, Me.total})
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.LightBlue
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvItem.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightBlue
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvItem.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvItem.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvItem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvItem.Location = New System.Drawing.Point(3, 27)
@@ -355,26 +351,26 @@ Partial Class frm_sale_inv_add
         '
         'qty
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.qty.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.qty.DefaultCellStyle = DataGridViewCellStyle2
         Me.qty.HeaderText = "QTY"
         Me.qty.Name = "qty"
         '
         'unitprice
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle12.Format = "N2"
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.unitprice.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.unitprice.DefaultCellStyle = DataGridViewCellStyle3
         Me.unitprice.HeaderText = "Unit Price"
         Me.unitprice.Name = "unitprice"
         '
         'total
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle13.Format = "N2"
-        DataGridViewCellStyle13.NullValue = Nothing
-        Me.total.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N2"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.total.DefaultCellStyle = DataGridViewCellStyle4
         Me.total.HeaderText = "Total"
         Me.total.Name = "total"
         Me.total.Width = 120
@@ -382,7 +378,7 @@ Partial Class frm_sale_inv_add
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(421, 116)
+        Me.Label10.Location = New System.Drawing.Point(522, 116)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(70, 22)
         Me.Label10.TabIndex = 20
@@ -391,7 +387,7 @@ Partial Class frm_sale_inv_add
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(421, 149)
+        Me.Label11.Location = New System.Drawing.Point(522, 149)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(84, 22)
         Me.Label11.TabIndex = 22
@@ -399,10 +395,10 @@ Partial Class frm_sale_inv_add
         '
         'txtDiscntAmt
         '
-        Me.txtDiscntAmt.Location = New System.Drawing.Point(506, 145)
+        Me.txtDiscntAmt.Location = New System.Drawing.Point(606, 145)
         Me.txtDiscntAmt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtDiscntAmt.Name = "txtDiscntAmt"
-        Me.txtDiscntAmt.Size = New System.Drawing.Size(94, 30)
+        Me.txtDiscntAmt.Size = New System.Drawing.Size(168, 30)
         Me.txtDiscntAmt.TabIndex = 23
         Me.txtDiscntAmt.Text = "0"
         Me.txtDiscntAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -410,7 +406,7 @@ Partial Class frm_sale_inv_add
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(600, 149)
+        Me.Label12.Location = New System.Drawing.Point(522, 182)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(52, 22)
         Me.Label12.TabIndex = 24
@@ -418,10 +414,10 @@ Partial Class frm_sale_inv_add
         '
         'txtVAT
         '
-        Me.txtVAT.Location = New System.Drawing.Point(673, 145)
+        Me.txtVAT.Location = New System.Drawing.Point(606, 178)
         Me.txtVAT.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtVAT.Name = "txtVAT"
-        Me.txtVAT.Size = New System.Drawing.Size(104, 30)
+        Me.txtVAT.Size = New System.Drawing.Size(168, 30)
         Me.txtVAT.TabIndex = 25
         Me.txtVAT.Text = "0"
         Me.txtVAT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -429,7 +425,7 @@ Partial Class frm_sale_inv_add
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(421, 182)
+        Me.Label13.Location = New System.Drawing.Point(522, 216)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(58, 22)
         Me.Label13.TabIndex = 26
@@ -439,10 +435,10 @@ Partial Class frm_sale_inv_add
         '
         Me.btnAdd.BackColor = System.Drawing.Color.ForestGreen
         Me.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.btnAdd.Location = New System.Drawing.Point(487, 245)
+        Me.btnAdd.Location = New System.Drawing.Point(526, 245)
         Me.btnAdd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(142, 29)
+        Me.btnAdd.Size = New System.Drawing.Size(120, 29)
         Me.btnAdd.TabIndex = 32
         Me.btnAdd.Text = "Add Item"
         Me.btnAdd.UseVisualStyleBackColor = False
@@ -451,10 +447,10 @@ Partial Class frm_sale_inv_add
         '
         Me.btnRemove.BackColor = System.Drawing.Color.Red
         Me.btnRemove.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnRemove.Location = New System.Drawing.Point(635, 245)
+        Me.btnRemove.Location = New System.Drawing.Point(654, 245)
         Me.btnRemove.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(142, 29)
+        Me.btnRemove.Size = New System.Drawing.Size(120, 29)
         Me.btnRemove.TabIndex = 33
         Me.btnRemove.Text = "Remove"
         Me.btnRemove.UseVisualStyleBackColor = False
@@ -463,10 +459,10 @@ Partial Class frm_sale_inv_add
         '
         Me.txtGrosamt.Enabled = False
         Me.txtGrosamt.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtGrosamt.Location = New System.Drawing.Point(506, 111)
+        Me.txtGrosamt.Location = New System.Drawing.Point(606, 111)
         Me.txtGrosamt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtGrosamt.Name = "txtGrosamt"
-        Me.txtGrosamt.Size = New System.Drawing.Size(271, 30)
+        Me.txtGrosamt.Size = New System.Drawing.Size(168, 30)
         Me.txtGrosamt.TabIndex = 21
         Me.txtGrosamt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -474,10 +470,10 @@ Partial Class frm_sale_inv_add
         '
         Me.txtNetAmt.Enabled = False
         Me.txtNetAmt.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNetAmt.Location = New System.Drawing.Point(506, 178)
+        Me.txtNetAmt.Location = New System.Drawing.Point(606, 212)
         Me.txtNetAmt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNetAmt.Name = "txtNetAmt"
-        Me.txtNetAmt.Size = New System.Drawing.Size(271, 30)
+        Me.txtNetAmt.Size = New System.Drawing.Size(168, 30)
         Me.txtNetAmt.TabIndex = 27
         Me.txtNetAmt.Text = "0"
         Me.txtNetAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -486,16 +482,16 @@ Partial Class frm_sale_inv_add
         '
         Me.cboCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCurrency.FormattingEnabled = True
-        Me.cboCurrency.Location = New System.Drawing.Point(506, 77)
+        Me.cboCurrency.Location = New System.Drawing.Point(606, 77)
         Me.cboCurrency.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboCurrency.Name = "cboCurrency"
-        Me.cboCurrency.Size = New System.Drawing.Size(271, 30)
+        Me.cboCurrency.Size = New System.Drawing.Size(168, 30)
         Me.cboCurrency.TabIndex = 19
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(421, 83)
+        Me.Label14.Location = New System.Drawing.Point(522, 83)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(55, 22)
         Me.Label14.TabIndex = 18
@@ -508,19 +504,19 @@ Partial Class frm_sale_inv_add
         Me.dgvFilter.AllowUserToDeleteRows = False
         Me.dgvFilter.AllowUserToResizeColumns = False
         Me.dgvFilter.AllowUserToResizeRows = False
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.dgvFilter.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.dgvFilter.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvFilter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvFilter.ColumnHeadersVisible = False
         Me.dgvFilter.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.Column5, Me.Column6, Me.DataGridViewTextBoxColumn8, Me.Column3, Me.Column4, Me.Column7})
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.LightBlue
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvFilter.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.LightBlue
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvFilter.DefaultCellStyle = DataGridViewCellStyle9
         Me.dgvFilter.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvFilter.Location = New System.Drawing.Point(18, 451)
         Me.dgvFilter.MultiSelect = False
@@ -549,9 +545,9 @@ Partial Class frm_sale_inv_add
         '
         'Column6
         '
-        DataGridViewCellStyle16.Format = "N2"
-        DataGridViewCellStyle16.NullValue = "0"
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle7.Format = "N2"
+        DataGridViewCellStyle7.NullValue = "0"
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column6.HeaderText = "Sex"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -559,9 +555,9 @@ Partial Class frm_sale_inv_add
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle17.Format = "N2"
-        DataGridViewCellStyle17.NullValue = "0"
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle8.Format = "N2"
+        DataGridViewCellStyle8.NullValue = "0"
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewTextBoxColumn8.HeaderText = "Phone#"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
@@ -586,47 +582,6 @@ Partial Class frm_sale_inv_add
         Me.Column7.ReadOnly = True
         Me.Column7.Width = 200
         '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(421, 216)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(90, 22)
-        Me.Label15.TabIndex = 28
-        Me.Label15.Text = "Deposit AMT"
-        '
-        'txtDeposit
-        '
-        Me.txtDeposit.Location = New System.Drawing.Point(506, 212)
-        Me.txtDeposit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtDeposit.Name = "txtDeposit"
-        Me.txtDeposit.Size = New System.Drawing.Size(94, 30)
-        Me.txtDeposit.TabIndex = 29
-        Me.txtDeposit.Text = "0"
-        Me.txtDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(600, 216)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(60, 22)
-        Me.Label16.TabIndex = 30
-        Me.Label16.Text = "Balance"
-        '
-        'txtEndAmt
-        '
-        Me.txtEndAmt.Font = New System.Drawing.Font("Khmer OS Content", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndAmt.Location = New System.Drawing.Point(673, 212)
-        Me.txtEndAmt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtEndAmt.Name = "txtEndAmt"
-        Me.txtEndAmt.Size = New System.Drawing.Size(104, 30)
-        Me.txtEndAmt.TabIndex = 31
-        Me.txtEndAmt.Text = "0"
-        Me.txtEndAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'frm_sale_inv_add
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 22.0!)
@@ -640,12 +595,8 @@ Partial Class frm_sale_inv_add
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.txtNetAmt)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.txtEndAmt)
-        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.txtVAT)
-        Me.Controls.Add(Me.txtDeposit)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.txtDiscntAmt)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.txtGrosamt)
@@ -724,10 +675,6 @@ Partial Class frm_sale_inv_add
     Friend WithEvents Label14 As Label
     Friend WithEvents dgvFilter As DataGridView
     Friend WithEvents btnSavePrint As Button
-    Friend WithEvents Label15 As Label
-    Friend WithEvents txtDeposit As TextBox
-    Friend WithEvents Label16 As Label
-    Friend WithEvents txtEndAmt As TextBox
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
