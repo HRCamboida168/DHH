@@ -164,6 +164,12 @@
     <Compile Include="sales\frm_sale_inv_printParm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sales\frm_sale_pmt_revers.Designer.vb">
+      <DependentUpon>frm_sale_pmt_revers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sales\frm_sale_pmt_revers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Users\userGroupMapping.Designer.vb">
       <DependentUpon>userGroupMapping.vb</DependentUpon>
     </Compile>
@@ -251,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sales\frm_sale_inv_printParm.resx">
       <DependentUpon>frm_sale_inv_printParm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales\frm_sale_pmt_revers.resx">
+      <DependentUpon>frm_sale_pmt_revers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\userGroupMapping.resx">
       <DependentUpon>userGroupMapping.vb</DependentUpon>

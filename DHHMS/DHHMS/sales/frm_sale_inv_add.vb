@@ -40,7 +40,7 @@ Public Class frm_sale_inv_add
             SelectNextControl(sender, True, True, True, True)
         End If
     End Sub
-    Dim cli_
+
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnAdd.Click
         If txtClinm.Text.Trim.Length = 0 Then
             MsgBox("Please input client name to create invoice!!", MsgBoxStyle.Critical, "Invoice")
@@ -249,18 +249,7 @@ Public Class frm_sale_inv_add
         End Try
 
     End Sub
-    Private Sub GenPayment(inv_num As String, cli_num As String, pmt_dt As Date, str_bal As Double, pay_amt As Double, end_bal As Double)
-        Try
-            '==>> Save Payment details
-            Dim pmt_num As String = dbhpr.GenerateID("Select max(pmt_num) from tdhh_invoice_payments where inv_num='" & inv_num & "'")
-            dbhpr.ExecProc("tdhh_invoice_payments_ins", "pmt_num", txtInvNum.Text, "inv_num", txtInvNum.Text, "cli_num", txtClinm.Text,
-                   "pmt_dt", pmt_dt, "pmt_amt", pay_amt, "end_bal", end_bal, "rec_status", IIf(end_bal = 0, "P", "B"),
-                   "created_dt", Now.Date, "created_by", MasterFRM.loginName)
-            '==<< Save Payment details
-        Catch ex As Exception
-            MsgBox(ex.Message.ToString)
-        End Try
-    End Sub
+
     Private Sub InvoiceValidat(ByRef err_msg As String)
         If txtClinm.Text.Trim.Length = 0 Then
             MsgBox("Please intput client!", MsgBoxStyle.Critical, "Invoice")
@@ -286,8 +275,7 @@ Public Class frm_sale_inv_add
         If errSms <> "00" Then
             Exit Sub
         End If
-        Dim inv_status As String = "P"
-
+        Dim inv_status As String = "A"
         SaveInvoice(inv_status)
 
         'add to Dg master
@@ -304,14 +292,12 @@ Public Class frm_sale_inv_add
         If errSms <> "00" Then
             Exit Sub
         End If
-        Dim inv_status As String = "P"
-
+        Dim inv_status As String = "A"
         SaveInvoice(inv_status)
 
         'add to master Dg
         addGridMaster(txtInvNum.Text)
-
-        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+        'Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
 
@@ -364,12 +350,17 @@ Public Class frm_sale_inv_add
     End Sub
 
     Private Sub frm_sale_inv_add_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        new_netAmt = IIf(IsNumeric(txtNetAmt.Text) = False, 0, txtNetAmt.Text)
-        new_cli_length = txtcli_num.Text.Trim.Length + txtphoneNum.Text.Trim.Length + txtMobilNum.Text.Trim.Length + txtAddress.Text.Trim.Length + txtMail.Text.Length
-        If (old_netAmt + old_cli_length) <> (new_netAmt + new_cli_length) Then
-            If MsgBox("There are some change in form!!!, Do you want to close form without save?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.No Then
-                e.Cancel = True
+        With frm_sale_inv
+            If .Act_typ = "EDIT" Then
+                new_netAmt = IIf(IsNumeric(txtNetAmt.Text) = False, 0, txtNetAmt.Text)
+                new_cli_length = txtcli_num.Text.Trim.Length + txtphoneNum.Text.Trim.Length + txtMobilNum.Text.Trim.Length + txtAddress.Text.Trim.Length + txtMail.Text.Length
+                If (old_netAmt + old_cli_length) <> (new_netAmt + new_cli_length) Then
+                    If MsgBox("There are some change in form!!!, Do you want to close form without save?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.No Then
+                        e.Cancel = True
+                    End If
+                End If
             End If
-        End If
+        End With
+
     End Sub
 End Class

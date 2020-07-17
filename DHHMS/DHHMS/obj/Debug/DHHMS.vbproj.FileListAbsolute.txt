@@ -95,3 +95,4 @@ D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.User_MainForm.resources
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.vbproj.GenerateResource.Cache
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.frmBill005PrintPreview.resources
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.frm_sale_inv_printParm.resources
+D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.frm_sale_pmt_revers.resources
