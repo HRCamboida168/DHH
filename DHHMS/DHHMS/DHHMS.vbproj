@@ -128,6 +128,9 @@
     <Compile Include="Resources\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="rpt_data\billDataPOS.vb" />
+    <Compile Include="rpt_data\billDetail001Data.vb" />
+    <Compile Include="rpt_data\billPmtHistoryData.vb" />
     <Compile Include="sales\frmBill002AddItem.designer.vb">
       <DependentUpon>frmBill002AddItem.vb</DependentUpon>
     </Compile>
@@ -291,6 +294,9 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\billDataPOS.datasource" />
+    <None Include="My Project\DataSources\billDetail001Data.datasource" />
+    <None Include="My Project\DataSources\billPmtHistoryData.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
