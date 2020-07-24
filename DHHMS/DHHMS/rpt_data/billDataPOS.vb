@@ -13,7 +13,8 @@
     Public Property vat_amt As Double
     Public Property net_amt As Double
     Public Property pmt_dt As Date
-    Public Property strt_amt As Double
+    Public Property strt_bal As Double
     Public Property pmt_amt As Double
     Public Property end_bal As Double
+    Public Property abbr_en As String
 End Class

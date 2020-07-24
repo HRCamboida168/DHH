@@ -96,9 +96,9 @@ Partial Class frm_sale_inv
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbPrintInvoice = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tsbRevert = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbReprint = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsbRevert = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbtnSearch = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
@@ -496,7 +496,7 @@ Partial Class frm_sale_inv
         Me.dtToDate.Location = New System.Drawing.Point(16, 147)
         Me.dtToDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtToDate.Name = "dtToDate"
-        Me.dtToDate.Size = New System.Drawing.Size(203, 30)
+        Me.dtToDate.Size = New System.Drawing.Size(202, 30)
         Me.dtToDate.TabIndex = 18
         '
         'DtFromDate
@@ -510,7 +510,7 @@ Partial Class frm_sale_inv
         Me.DtFromDate.Location = New System.Drawing.Point(16, 92)
         Me.DtFromDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DtFromDate.Name = "DtFromDate"
-        Me.DtFromDate.Size = New System.Drawing.Size(203, 30)
+        Me.DtFromDate.Size = New System.Drawing.Size(202, 30)
         Me.DtFromDate.TabIndex = 18
         '
         'Label3
@@ -556,7 +556,7 @@ Partial Class frm_sale_inv
         Me.btnSearch.Location = New System.Drawing.Point(16, 245)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(203, 30)
+        Me.btnSearch.Size = New System.Drawing.Size(202, 30)
         Me.btnSearch.TabIndex = 3
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
@@ -591,7 +591,7 @@ Partial Class frm_sale_inv
         Me.txtInvStatus.Location = New System.Drawing.Point(16, 207)
         Me.txtInvStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtInvStatus.Name = "txtInvStatus"
-        Me.txtInvStatus.Size = New System.Drawing.Size(203, 30)
+        Me.txtInvStatus.Size = New System.Drawing.Size(202, 30)
         Me.txtInvStatus.TabIndex = 0
         '
         'txtClientName
@@ -602,7 +602,7 @@ Partial Class frm_sale_inv
         Me.txtClientName.Location = New System.Drawing.Point(16, 34)
         Me.txtClientName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtClientName.Name = "txtClientName"
-        Me.txtClientName.Size = New System.Drawing.Size(203, 30)
+        Me.txtClientName.Size = New System.Drawing.Size(202, 30)
         Me.txtClientName.TabIndex = 0
         '
         'ToolStrip1
@@ -669,20 +669,6 @@ Partial Class frm_sale_inv
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 43)
         '
-        'tsbRevert
-        '
-        Me.tsbRevert.Enabled = False
-        Me.tsbRevert.Image = Global.DHHMS.My.Resources.Resources.file_delete
-        Me.tsbRevert.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbRevert.Name = "tsbRevert"
-        Me.tsbRevert.Size = New System.Drawing.Size(155, 40)
-        Me.tsbRevert.Text = "Reverse Payment"
-        '
-        'ToolStripSeparator6
-        '
-        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 43)
-        '
         'tsbReprint
         '
         Me.tsbReprint.Enabled = False
@@ -691,6 +677,20 @@ Partial Class frm_sale_inv
         Me.tsbReprint.Name = "tsbReprint"
         Me.tsbReprint.Size = New System.Drawing.Size(147, 40)
         Me.tsbReprint.Text = "Reprint Payment"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 43)
+        '
+        'tsbRevert
+        '
+        Me.tsbRevert.Enabled = False
+        Me.tsbRevert.Image = Global.DHHMS.My.Resources.Resources.file_delete
+        Me.tsbRevert.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbRevert.Name = "tsbRevert"
+        Me.tsbRevert.Size = New System.Drawing.Size(155, 40)
+        Me.tsbRevert.Text = "Reverse Payment"
         '
         'ToolStripSeparator7
         '

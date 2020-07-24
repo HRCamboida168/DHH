@@ -44,4 +44,9 @@ Public Class frm_sale_inv_printParm
 
     End Sub
 
+    Private Sub dtpPmtDt_KeyDown(sender As Object, e As KeyEventArgs) Handles txtStartBal.KeyDown, txtPayAmount.KeyDown, txtEndBal.KeyDown, rbSplPay.KeyDown, rbPOS.KeyDown, rbFullPay.KeyDown, rbA4.KeyDown, dtpPmtDt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            SelectNextControl(sender, True, True, True, True)
+        End If
+    End Sub
 End Class

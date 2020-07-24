@@ -71,7 +71,6 @@ D:\Projects\DHH1\DHHMS\DHHMS\bin\Debug\DHHMS.pdb
 D:\Projects\DHH1\DHHMS\DHHMS\bin\Debug\DHHMS.xml
 D:\Projects\DHH1\DHHMS\DHHMS\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 D:\Projects\DHH1\DHHMS\DHHMS\bin\Debug\PdfSharp.dll
-D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.vbprojResolveAssemblyReference.cache
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.frmCon.resources
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.LogIn.resources
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.MasterFRM.resources
@@ -96,3 +95,4 @@ D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.vbproj.GenerateResource.Cache
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.exe
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.xml
 D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.pdb
+D:\Projects\DHH1\DHHMS\DHHMS\obj\Debug\DHHMS.vbprojResolveAssemblyReference.cache

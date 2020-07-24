@@ -8,6 +8,7 @@ Public Class frm_sale_inv
     Private Sub frmSnackDrinkList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SplitContainer2.Panel2Collapsed = True
         Try
+            DtFromDate.Value = DateSerial(Now.Year, Now.Month, 1)
             'disable button 
             dgInvMster.Rows.Clear()
             Dim sqlStr As String = ""
@@ -277,7 +278,12 @@ Public Class frm_sale_inv
             dgInvMster.Rows.Clear()
             Dim sqlStr As String = ""
             Dim tbl As DataTable = Nothing
-            sqlStr = "select v.inv_num,v.cli_num,v.cli_nm,v.phone_num,v.mobil_num,v.inv_issu_dt,v.gros_amt,v.dscnt_amt,v.vat_amt,v.net_amt,v.crcy_code,v.deposit_amt,v.pening_amt,v.inv_status from vw_invoice_clients v where inv_status like '%" & txtInvStatus.Text & "%'  and cli_nm like '%" & txtClientName.Text & "%'" 'year(inv_issu_dt)='" & Now.Year & "' and MONTH(inv_issu_dt)='" & Now.Month & "'"
+            If txtClientName.Text.Trim = "" Then
+                sqlStr = "select v.inv_num,v.cli_num,v.cli_nm,v.phone_num,v.mobil_num,v.inv_issu_dt,v.gros_amt,v.dscnt_amt,v.vat_amt,v.net_amt,v.crcy_code,v.deposit_amt,v.pening_amt,v.inv_status from vw_invoice_clients v where inv_status like '%" & txtInvStatus.Text & "%' and inv_issu_dt between '" & DtFromDate.Value.Date & "' and '" & dtToDate.Value.Date & "' " 'year(inv_issu_dt)='" & Now.Year & "' and MONTH(inv_issu_dt)='" & Now.Month & "'"
+            Else
+                sqlStr = "select v.inv_num,v.cli_num,v.cli_nm,v.phone_num,v.mobil_num,v.inv_issu_dt,v.gros_amt,v.dscnt_amt,v.vat_amt,v.net_amt,v.crcy_code,v.deposit_amt,v.pening_amt,v.inv_status from vw_invoice_clients v where inv_status like '%" & txtInvStatus.Text & "%' and inv_issu_dt between '" & DtFromDate.Value.Date & "' and '" & dtToDate.Value.Date & "'  and  dbo.UncodeConvert(lower(cli_nm)) Like '%'+ dbo.UncodeConvert(N'" & txtClientName.Text.ToLower & "') +'%' " 'year(inv_issu_dt)='" & Now.Year & "' and MONTH(inv_issu_dt)='" & Now.Month & "'"
+            End If
+
             tbl = dbHpr.SelectData(sqlStr, "Invioce")
             For Each r As DataRow In tbl.Rows
                 dgInvMster.Rows.Add(r("inv_num"),
@@ -322,13 +328,6 @@ Public Class frm_sale_inv
         For Each r As DataRow In tbl.Rows
             dgPmtDtls.Rows.Add(r("pmt_num"), r("pmt_dt"), r("strt_bal"), r("pmt_amt"), r("end_bal"))
         Next
-        If dgPmtDtls.RowCount = 0 Then
-            tsbRevert.Enabled = False
-            tsbReprint.Enabled = False
-        Else
-            tsbRevert.Enabled = True
-            tsbReprint.Enabled = True
-        End If
     End Sub
 
     Public Shared print_typ As String = "POS"
@@ -398,7 +397,7 @@ Public Class frm_sale_inv
         If is_print = True Then
             Try
                 'Save Payment Details
-                Dim pmt_seq As String = "1"
+                Dim pmt_seq As String = ""
                 GenPayment(dgInvMster.SelectedRows(0).Cells(0).Value, dgInvMster.SelectedRows(0).Cells(1).Value, pmt_dt, bginBal, payment_amt, endBal, pmt_seq)
 
                 sqlStr = "select deposit_amt,pening_amt,inv_status from tdhh_invoice_masters where inv_num='" & dgInvMster.SelectedRows(0).Cells(0).Value & "' "
@@ -409,12 +408,12 @@ Public Class frm_sale_inv
                     dgInvMster.SelectedRows(0).Cells(13).Value = tbl(0)("inv_status")
                 End If
                 dgPmtDtls.Rows.Add(pmt_seq, pmt_dt, bginBal, payment_amt, endBal)
+
+                'show print perview
+                PrintPreview(pmt_seq, inv_num, print_typ)
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
-            'show print perview
-            Dim seq_num As Int16 = 1
-            PrintPreview(seq_num, inv_num)
         End If
     End Sub
 
@@ -432,7 +431,7 @@ Public Class frm_sale_inv
         End Try
     End Sub
 
-    Private Sub PrintPreview(seq_num As String, bill_num As String)
+    Private Sub PrintPreview(seq_num As String, bill_num As String, paper_typ As String)
         With frmBill005PrintPreview
             'View Report
             'reset
@@ -454,16 +453,22 @@ Public Class frm_sale_inv
             .ReportViewer1.LocalReport.DataSources.Add(rds3)
 
             'Path
-            .ReportViewer1.LocalReport.ReportPath = Application.StartupPath & "\rpt\rptBill002A4.rdlc"
+            If paper_typ = "A4" Then
+                .ReportViewer1.LocalReport.ReportPath = Application.StartupPath & "\rpt\rptBill002A4.rdlc"
+            Else
+                .ReportViewer1.LocalReport.ReportPath = Application.StartupPath & "\rpt\rptBill002POS.rdlc"
+            End If
             .ReportViewer1.ZoomMode = ZoomMode.FullPage
             'refresh
             .ReportViewer1.RefreshReport()
 
             .ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
 
-            .Width = 680
-            .Height = MasterFRM.Height
+            '.Width = 680
+            '.Height = MasterFRM.Height
+            .WindowState = FormWindowState.Maximized
             .ShowDialog()
+
             .Close()
             .Dispose()
         End With
@@ -475,7 +480,15 @@ Public Class frm_sale_inv
             MsgBox("No Payment to revers!", MsgBoxStyle.Information, "Revers Payment")
             Exit Sub
         End If
-        If MsgBox("Are you sure you want to revers payment history?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+        'check if not last print
+        Dim sqlChk As String = "select pmt_num from tdhh_invoice_payments where cast(pmt_num as int)>'" & dgPmtDtls.SelectedRows(0).Cells(0).Value & "' and inv_num ='" & dgInvMster.SelectedRows(0).Cells(0).Value & "' and rec_status='A' "
+        Dim is_not_lst_pmt As Boolean = dbHpr.Exists(sqlChk)
+        If is_not_lst_pmt = True Then
+            MsgBox("Please reverse from last payment!")
+            Exit Sub
+        End If
+
+        If MsgBox("Are you sure you want to revers payment history?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Revert Invoice") = MsgBoxResult.Yes Then
             With frm_sale_pmt_revers
                 .ShowDialog()
                 If .DialogResult = System.Windows.Forms.DialogResult.OK Then
@@ -513,12 +526,37 @@ Public Class frm_sale_inv
         If MsgBox("Do you want to re-print selected payment?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             'save history
             dbHpr.ExecProc("tgh_bill_print_histories_ins", "bill_num", dgInvMster.SelectedRows(0).Cells(0).Value & dgPmtDtls.SelectedRows(0).Cells(0).Value, "print_dt", Now.Date, "print_by", MasterFRM.loginName, "reasn", "reprint invoice for client")
-            PrintPreview(dgPmtDtls.SelectedRows(0).Cells(0).Value, dgInvMster.SelectedRows(0).Cells(0).Value)
+            If MsgBox("Do you want ot print in A4 size?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                PrintPreview(dgPmtDtls.SelectedRows(0).Cells(0).Value, dgInvMster.SelectedRows(0).Cells(0).Value, "A4")
+            Else
+                PrintPreview(dgPmtDtls.SelectedRows(0).Cells(0).Value, dgInvMster.SelectedRows(0).Cells(0).Value, "POS")
+            End If
+
         End If
 
     End Sub
 
     Private Sub dgInvMster_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgInvMster.CellContentClick
 
+    End Sub
+
+    Private Sub dgPmtDtls_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgPmtDtls.CellContentClick
+
+    End Sub
+
+    Private Sub dgPmtDtls_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles dgPmtDtls.RowStateChanged
+        On Error Resume Next
+        If dgPmtDtls.RowCount = 0 Then
+            Me.tbtnEdi.Enabled = True
+            Me.tbtnDel.Enabled = True
+            Me.tsbReprint.Enabled = False
+            Me.tsbRevert.Enabled = False
+        Else
+            Me.tsbReprint.Enabled = True
+            Me.tsbRevert.Enabled = True
+            Me.tbtnEdi.Enabled = False
+            Me.tbtnDel.Enabled = False
+
+        End If
     End Sub
 End Class
